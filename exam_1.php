@@ -22,5 +22,24 @@
         return $sum;
     }
 
-    echo whileFunc();
+    # This function will display all odd numbers with the use of a do while loop
+    function doWhileFunc(){
+        # set number from 0.
+        $x = 0;
+
+        # the loop that handles the checking and displaying the odd numbers from 0 to 10.
+        do {
+            # if statement that wll check if the number is an odd number. Will display if the number is odd
+            if ($x % 2 == 1){
+                echo $x . ", ";
+            }
+            # increment value for loop
+            $x++;
+        } while ($x <= 10);
+
+    }
+
+    echo whileFunc() . "<br>";
+
+    echo doWhileFunc()  . "<br>";
 ?>
