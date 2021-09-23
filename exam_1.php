@@ -39,7 +39,22 @@
 
     }
 
+    function forFunc(){
+        $x = 0;    
+        $y = 1; 
+
+        echo $x . ", " . $y . ", ";
+        for ($i=1; $i < 9; $i++) { 
+            $z = $x + $y;    
+            echo $z . ", ";         
+            $x=$y;       
+            $y=$z;   
+        }
+    }
+
     echo whileFunc() . "<br>";
 
     echo doWhileFunc()  . "<br>";
+
+    echo forFunc();
 ?>
