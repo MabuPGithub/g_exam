@@ -122,7 +122,33 @@
             
         }
         
+        # sort array in ascending order
         sort($newArr);
+        print_r ($newArr);
+    }
+
+    # this function will only show items that are not repeated
+    function nonRepetitivesOnly($array) {
+        # sort the array's contents
+        sort($array);
+        # set array length to iterate in the for loop
+        $arrayLength = count($array);
+
+        # new array for the nonrepetitives
+        $newArr = array();
+
+        # the for loop that will handle the checking
+        for ($i = 1; $i < $arrayLength; $i++) { 
+            # this will check if the current item is equal to the previous item and the next item
+            if ($array[$i] !== $array[$i - 1] && $array[$i] !== $array[$i + 1]) {
+                array_push($newArr, $array[$i]);
+            }
+        }
+        # this will check if the 1st item is not repeating
+        if ($array[0] !== $array[1]) {
+            array_push($newArr, $array[0]);
+        }
+
         print_r ($newArr);
     }
 
@@ -139,4 +165,7 @@
     echo mostNumberOfOccurence($arr) . "<br>";
 
     echo sortNumber($numArr) . "<br>";
+
+    echo nonRepetitivesOnly($arr);
+
 ?>
