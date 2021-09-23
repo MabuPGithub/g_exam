@@ -7,3 +7,8 @@ ON Employees.department_id = Departments.ID
 INNER JOIN Salaries
 on Employees.salary_id = Salaries.id
 where salary_id = 3;
+
+-- Get all employees that are hired from 2017-2018
+SELECT * FROM Employees
+WHERE date_hired BETWEEN '2017-01-01' AND '2018-12-31';
+
