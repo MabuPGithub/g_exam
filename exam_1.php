@@ -39,22 +39,79 @@
 
     }
 
+    # function that will display 10 numbers in the fibonacci sequence
     function forFunc(){
-        $x = 0;    
+        #set the F0
+        $x = 0;
+        #set the F1    
         $y = 1; 
 
+        # will echo the 1st 2 digits of the sequence
         echo $x . ", " . $y . ", ";
-        for ($i=1; $i < 9; $i++) { 
+
+        # the for loop that will handle the sequence
+        for ($i = 1; $i < 9; $i++) { 
+            # $z is the result and will be displayed
             $z = $x + $y;    
-            echo $z . ", ";         
-            $x=$y;       
-            $y=$z;   
+            echo $z . ", ";
+            # interchanging the values for the next sequence         
+            $x = $y;       
+            $y = $z;   
         }
     }
+
+
+    # Arrays
+
+    # this function return the most recurring value
+    function mostNumberOfOccurence($array){
+
+        # sort the array's contents
+        sort($array);
+        # set array length to iterate in the for loop
+        $arrayLength = count($array);
+
+        # set the the first value as the default answer
+        $result = $array[0];
+
+        # set a count for basis
+        $baseCount = 1;
+        # set the counter
+        $counter = 1;
+
+        # the for loop that will handle the checking
+        for ($i = 1; $i < $arrayLength; $i++) { 
+            # this will check if the current item is equal to the previous item. If it is equal, the counter will be incremented.
+            if ($array[$i] == $array[$i - 1]) {
+                $counter++;
+            }
+            # the else statement will reset the counter for the next check for the next item.
+            else {
+                # this condition will set the most recurring item if the counter is greater than the baseCount
+                if ($counter > $baseCount) {
+                    $baseCount = $counter;
+                    $result = $array[$i - 1];
+                }
+                $counter = 1;
+            }
+        }
+        # this will check if the last item is the most recurring item
+        if ($counter > $baseCount) {
+            $baseCount = $counter;
+            $result = $array[$arrayLength - 1];
+        }
+        # will return the final result
+        return $result;
+    }
+
+    $arr = array("Marvin", "Marco", "Marvin", "Marco", "Marvin", "Christian");
 
     echo whileFunc() . "<br>";
 
     echo doWhileFunc()  . "<br>";
 
-    echo forFunc();
+    echo forFunc() . "<br>";
+
+    echo mostNumberOfOccurence($arr) . "<br>";
+
 ?>
