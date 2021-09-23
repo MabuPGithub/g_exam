@@ -104,7 +104,31 @@
         return $result;
     }
 
+    # this sort the passed array in the ascending order with odd numbers rounded off to the nearest tens
+    function sortNumber($array){
+        # set the array length
+        $arrayLength = count($array);
+        # this array will contain the old array items w/ the rounded off odd numbers
+        $newArr = array();
+
+        # for the loop that will check if the number is odd and will push to the new array
+        for ($i = 0; $i < $arrayLength; $i++) {
+            if ($array[$i] % 2 == 1) {
+                array_push($newArr, round($array[$i], -1));
+            }
+            else {
+                array_push($newArr, $array[$i]);
+            }
+            
+        }
+        
+        sort($newArr);
+        print_r ($newArr);
+    }
+
     $arr = array("Marvin", "Marco", "Marvin", "Marco", "Marvin", "Christian");
+
+    $numArr = array(333, 111, 222, 555, 695);
 
     echo whileFunc() . "<br>";
 
@@ -114,4 +138,5 @@
 
     echo mostNumberOfOccurence($arr) . "<br>";
 
+    echo sortNumber($numArr) . "<br>";
 ?>
